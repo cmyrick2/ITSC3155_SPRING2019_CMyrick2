@@ -37,4 +37,23 @@ end
 # Part III
 def hash_2_array contacts
     # YOUR CODE HERE
+    keyarray = contacts.keys
+    emailarray = Array.new
+    phonearray = Array.new
+    c = 0
+    keyarray.each do |x|
+        hash = Hash.new
+        hash = contacts[x]
+        emailarray[c] = hash[:email]
+        phonearray[c] = hash[:phone]
+        c = c + 1 
+    end
+    x = 0
+    while x < keyarray.length 
+        keyarray[x] = keyarray[x].id2name
+        x = x + 1
+    end
+    finalarray = [ emailarray, phonearray, keyarray ] 
+    return finalarray
+
 end
