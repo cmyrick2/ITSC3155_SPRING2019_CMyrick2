@@ -6,9 +6,9 @@ def array_2_hash emails, contacts
         return contacts
     else
         x = 0
-        keyarray = contacts.keys
+        karr = contacts.keys
         hash = Hash.new
-        keyarray.each do |y|
+        karr.each do |y|
             hash[y] = emails[x]
             x = x + 1
         end
@@ -22,10 +22,10 @@ def array2d_2_hash contact_info, contacts
     unless contact_info[0].any?
         return contacts
     else
-        keyarray = contacts.keys
+        karr = contacts.keys
         newHash = Hash.new {|hash, key| hash[key] = { } }
         c = 0
-        keyarray.each do |x|
+        karr.each do |x|
             newHash[x].store :email,contact_info[c][0]
             newHash[x].store :phone,contact_info[c][1]
             c = c + 1
@@ -37,23 +37,23 @@ end
 # Part III
 def hash_2_array contacts
     # YOUR CODE HERE
-    keyarray = contacts.keys
-    emailarray = Array.new
-    phonearray = Array.new
+    karr = contacts.keys
+    earr = Array.new
+    parr = Array.new
     c = 0
-    keyarray.each do |x|
+    karr.each do |x|
         hash = Hash.new
         hash = contacts[x]
-        emailarray[c] = hash[:email]
-        phonearray[c] = hash[:phone]
+        earr[c] = hash[:email]
+        parr[c] = hash[:phone]
         c = c + 1 
     end
     x = 0
-    while x < keyarray.length 
-        keyarray[x] = keyarray[x].id2name
+    while x < karr.length 
+        karr[x] = karr[x].id2name
         x = x + 1
     end
-    finalarray = [ emailarray, phonearray, keyarray ] 
-    return finalarray
+    finalarr = [ earr, parr, karr ] 
+    return finalarr
 
 end
