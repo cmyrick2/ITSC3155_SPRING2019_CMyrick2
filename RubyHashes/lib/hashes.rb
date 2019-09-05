@@ -19,6 +19,19 @@ end
 # Part II
 def array2d_2_hash contact_info, contacts
     # YOUR CODE HERE
+    unless contact_info[0].any?
+        return contacts
+    else
+        keyarray = contacts.keys
+        newHash = Hash.new {|hash, key| hash[key] = { } }
+        c = 0
+        keyarray.each do |x|
+            newHash[x].store :email,contact_info[c][0]
+            newHash[x].store :phone,contact_info[c][1]
+            c = c + 1
+        end
+    end
+    return newHash
 end
 
 # Part III
